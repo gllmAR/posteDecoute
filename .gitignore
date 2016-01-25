@@ -1,4 +1,7 @@
-lieux/lieux_1/am/*.*
-lieux/lieux_1/ci/*.*
-lieux/lieux_1/de/*.*
-lieux/lieux_1/sy/*.*
+.DS_Store
+.DS_Store?
+
+lieux/lieux_1/am/*.wav
+lieux/lieux_1/ci/*.wav
+lieux/lieux_1/de/*.wav
+lieux/lieux_1/sy/*.wav
