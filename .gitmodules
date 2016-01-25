@@ -1,0 +1,6 @@
+[submodule "pd/pd-osc"]
+	path = pd/pd-osc
+	url = https://github.com/gllmAR/pd-osc.git
+[submodule "rpi-gpioOsc"]
+	path = rpi-gpioOsc
+	url = https://github.com/gllmAR/rpi-gpioOsc.git
