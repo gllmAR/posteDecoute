@@ -8,7 +8,7 @@ ambiance.cut.vol 0;
 ambiance.cut.fadetime 500;
 circonstance.audioextention wav;
 circonstance.filename ci_lieux1;
-circonstance.count 15;
+circonstance.count 4;
 circonstance.normal.vol 1;
 circonstance.normal.fadetime 30;
 ecoute.new.circonstance.minimum 1;

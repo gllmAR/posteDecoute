@@ -5,6 +5,18 @@ utilise pd-Vanilla 0.46.7
 télécharger ici :  http://msp.ucsd.edu/software.html
 
 
+##### commande utiles
+
+```
+python rpi-gpioOs.py -i 18 -o /ecoute.senseur.raw -d 127.0.0.1 -p 8000 -r 2 -D 0
+```
+
+```
+/home/pi/pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "3,1" -nogui -send "lieu.read /home/pi/posteDecoute/situations/situation_1/situation_1.txt" /home/pi/posteDecoute/pd/_main.pd
+```
+
+
+
 
 
 ### to do
@@ -12,7 +24,7 @@ télécharger ici :  http://msp.ucsd.edu/software.html
 ##### prog Pd
 * changer fadeout pour inactif
 * changer cut pour muted
-* 
+*
 
 ##### Connexion wireless on boot :
 
