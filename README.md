@@ -77,17 +77,20 @@ tar -zxvf pd-0.46-7.armv7.tar.gz
 
 ##### modifier readGpioOSC.py
 * [X] implémenter le mode read (actif par default)
-* [] implémenter un change.
+* [ ] implémenter un change.
 
 ##### Script d'initialisation
 
 * trouver c'est quoi le plus logique avec systemD
+	* https://blog.sleeplessbeastie.eu/2015/04/27/how-to-manage-system-services-on-debian-jessie/
 * Documenter afin que ce soit simple pour un utilisateur à changer
+* http://www.pihomeserver.fr/en/2013/05/27/raspberry-pi-home-server-lancer-un-programme-automatiquement-au-demarrage/
+* 
 
 ##### Connexion wireless on boot :
 
-* [] hidden SSID
-* [] Password sur le ssid
+* [ ] hidden SSID
+* [ ] Password sur le ssid
 * investiguer et mieux documenter :
 
 http://www.novitiate.co.uk/?p=183
