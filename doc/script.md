@@ -44,10 +44,30 @@ Description=Ping auto test
 [Service]
 ExecStart=/home/pi/ping
 
+
 [Install]
 WantedBy=multi-user.target
 
 ```
+
+#### Créer un service
+```
+sudo nano /etc/systemd/system/gpioOSC.service
+```
+
+```
+[Unit]
+Description=gpioOSC service
+
+[Service]
+ExecStart=/home/pi/posteDecoute/scripts/gpioOSC.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 
 #### Pour voir l'etat du service
 ```
