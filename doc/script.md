@@ -8,6 +8,13 @@ https://wiki.archlinux.org/index.php/Systemd
 
 #### Créer un fichier script
 
+
+/usr/bin/tmux new-session -d -s gpioOSC /home/pi/posteDecoute/scripts/gpioOSC
+tmux attach-session -t gpioOSC
+
+control+b puis x
+
+
 ```
 cd ~/
 ```
@@ -68,11 +75,26 @@ WantedBy=multi-user.target
 
 ```
 
+screen -dmS gpioOSC /home/pi/posteDecoute/scripts/gpioOSC.sh
+
 
 #### Pour voir l'etat du service
+
+```
+sudo systemctl start ping.service
+```
+
+```
+sudo systemctl enable ping.service
+```
 ```
 sudo systemctl status ping.service
 ```
+
+```
+sudo systemctl daemon-reload
+```
+
 
 
 #### Si besoin d'interaction avec le clavier,  s'inspirer de ça
