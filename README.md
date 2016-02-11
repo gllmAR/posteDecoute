@@ -53,6 +53,15 @@ python /home/pi/posteDecoute/rpi-gpioOsc/rpi-gpioOs.py -i 18 -o /ecoute.senseur.
 /home/pi/pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "3,1" -nogui -send "lieu.read /home/pi/situations/lieux/lieux_1.txt" /home/pi/posteDecoute/pd/_main.pd
 ```
 
+### Service au boot
+
+Pour automatiser le départ des application,  nous utilisons le principe de Services dans systemD
+
+voir
+
+https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
+
+
 
 
 ### Dépendences :
@@ -85,13 +94,15 @@ tar -zxvf pd-0.46-7.armv7.tar.gz
 	* https://blog.sleeplessbeastie.eu/2015/04/27/how-to-manage-system-services-on-debian-jessie/
 * Documenter afin que ce soit simple pour un utilisateur à changer
 * http://www.pihomeserver.fr/en/2013/05/27/raspberry-pi-home-server-lancer-un-programme-automatiquement-au-demarrage/
-* 
+*
 
 ##### Connexion wireless on boot :
 
 * [ ] hidden SSID
 * [ ] Password sur le ssid
 * investiguer et mieux documenter :
+
+http://elinux.org/RPI-Wireless-Hotspot
 
 http://www.novitiate.co.uk/?p=183
 
