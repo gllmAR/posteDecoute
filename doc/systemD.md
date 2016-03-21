@@ -1,3 +1,9 @@
+sudo systemctl stop startPD.service
+
+
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+
+
 # Startup Script systemD
 
 source : https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=7192&p=828947#p828947
