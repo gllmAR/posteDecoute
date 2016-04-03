@@ -1,2 +1,2 @@
 #!/bin/sh
-/home/pi/pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "3,1" -nogui -send "lieu.read /home/pi/situations/lieux/lieux_1.txt" /home/pi/posteDecoute/pd/_main.pd
+/home/pi/src/pd-0.46-7/bin/pd -nogui -listdev -nogui -send "lieu.read /home/pi/situation/config.txt" /home/pi/src/posteDecoute/pd/_main.pd
