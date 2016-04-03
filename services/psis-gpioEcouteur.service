@@ -1,0 +1,12 @@
+```
+[Unit]
+Description=PSIS GPIO-OSC Detection
+
+[Service]
+ExecStart=/home/pi/src/posteDecoute/scripts/psis-gpioDetecte
+
+
+[Install]
+WantedBy=multi-user.target
+
+```

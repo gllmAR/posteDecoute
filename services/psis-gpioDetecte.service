@@ -1,0 +1,12 @@
+```
+[Unit]
+Description=PSIS GPIO-OSC Ecouteur
+
+[Service]
+ExecStart=/home/pi/src/posteDecoute/scripts/psis-gpioEcouteur
+
+
+[Install]
+WantedBy=multi-user.target
+
+```
