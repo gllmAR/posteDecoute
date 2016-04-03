@@ -3,33 +3,94 @@
 Lecteur sonore sensible disséminé dans l'espace publique.
 Spécilament conçu pour l'artiste Julie Faubert.  
 
+
+ecouteur.actif = 0
+detecte.actif = 0
+synchrone.actif = 0
+
+ecouteur : 
+	actif si senseur écouteur = actif + smooth
+	inactif si senseur écouteur = inactif + smooth
+	
+
+detecte : 
+	actif si senseur détecte = actif + smooth
+	inactif si senseur détecte = inactif.smooth
+	
+synchrone :
+	actif si deux poste ont ecouteur actif activé
+	inactif si pas deux poste ont écouteur actif activé
+
+
+ambiance.veille.timer : 
+
+if STATE == ambiance.actif && ecouteur.inactif 
+	ambiance.veille.timer --
+	if ambiance.veille.timer == 0 
+		STATE => ambiance.veille
+else 
+	ambiance.veille.timer == ambiance.veille.timer.init		
+
+
+
+**Variables**
+
+ambiance.veille.timer.time ; temps en seconde pour la mise en veille sonore
+
+
+**Fonctions**
+
+
 Fonctionne avec les états suivants
 
-##### ambiance.veille :
-joue à volume bas,  en attente d'activation
+##### state : AMBIANCE.VEILLE :
+joue ambiance à volume bas
+* si ecouteur = 0 & ambiance.veille.timer. = 0 -> ambiance.player.fadeout
+* si ecouteur = 1 -> ambiance.actif  
 
-##### ambiance.actif :
-joue en boucle pour toujours
+##### state : AMBIANCE.ACTIF :
+joue ambiance à volume normale
 
-* lorsqu’écouteur inactif pour X temps,  réduction du volume de AMBIANCE
-* lorsque CIRCONSTANCE est actif,  AMBIANCE est muet FADE OUT, OUI
+* si ecouteur = 1 & circonstance.new.timer = 0 & circonstance.flag = 0 -> CIRCONSTANCE.NEW
+* si ecouteur = 1 & circonstance.old.timer = 0 & circonstance.flag = 1 -> CIRCONSTANCE.OLD
+* si ecouteur = 1 & detecte = 1 & detection.player.ended & detection.timer.ended &  = 1 & detection.timer.ended = 1 -> DETECTION
+* si ecouteur = 1 & sychrone = 1 & synchronie.player.ended = 1 & synchronie.timer.ended = 1 -> SYNCRHONIE
 
 
-##### circonstance.actif.new :
-- joue un fichier aléatoire depuis le dossier circonstance lorsque ECOUTE  est activé pour la première fois après avoir attendu un  temps relativement aléatoire à la fin,  retour à ambiance
+##### state : CIRCONSTANCE.NEW :
+Joue un fichier aléatoire depuis le dossier circonstance lorsque ECOUTE  est activé pour la première fois après avoir attendu un  temps relativement aléatoire à la fin,  retour à ambiance
 
-##### circonstance.actif.old :
+* si ecouteur = 0 & circonstance.new.veille.timer.ended = 1 => ambiance.actif & circonstance.new.player.fade
+* si ecouteur = 1 & circonstance.new.player.ended => ambiance.actif & circonstance.flag=1
+* si ecouteur = 1 & sychrone.actif & synchronie.player.ended & synchronie.timer = 0 -> SYNCHRONIE
+
+
+
+
+
+##### state : CIRCONSTANCE.OLD :
 - joue un fichier aléatoire depuis le dossier circonstance lorsque ECOUTE est activé suite à la première fois après avoir attendu un  temps relativement aléatoire, à la fin,  retour à ambiance
 
 
-##### SYNCHRONE :
+* si ecouteur = 0 & circonstance.new.veille.timer.ended = 1 => AMBIANCE.ACTIF & circonstance.flag=0
+* si ecouteur = 1 & circonstance.old.ended => AMBIANCE.ACTIF
+* si ecouteur = 1 & sychrone = 1 & synchronie.player.ended  & synchronie.timer = 0 -> SYNCHRONIE
+
+
+
+##### function : SYNCHRONIE :
 - joue un fichier pigé depuis le dossier Synchrome en addition avec AMBIANCE et CIRCONSTANCE lorsque 2 écouteurs sont actifs.
 - Un délai aléatoire  entre les lectures de fichiers
 
-##### DÉTECTE
+* si ecouteur = 1 & synchrone = 1 & synchrone.timer = 0 => syncronie.play
+
+* syncronie.rnd.timer
+
+
+
+##### function : DÉTECTION
 - joue un fichier pigé depuis le dossier Détecte en addition avec AMBIANCE lorsqu'un senseur est déclenché.
-
-
+* detectione.rnd.timer
 
 
 ### commande utiles
@@ -69,12 +130,7 @@ https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-a
 pd-Vanilla 0.46.7
 * disponible ici :  http://msp.ucsd.edu/software.html
 
-* sur le pi
-```
-cd ~
-wget http://msp.ucsd.edu/Software/pd-0.46-7.armv7.tar.gz
-tar -zxvf pd-0.46-7.armv7.tar.gz
-```
+
 
 
 #### to do

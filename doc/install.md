@@ -14,3 +14,16 @@ sudo dd bs=1m if=/Users/gllm/Downloads/2016-03-18-raspbian-jessie-lite.img  of=/
 ```
 
 ctrl+t pour voir le progrès
+
+
+sudo apt-get update && sudo apt-get upgrade
+
+sudo apt-get install git
+
+
+* sur le pi
+```
+cd ~
+wget http://msp.ucsd.edu/Software/pd-0.46-7.armv7.tar.gz
+tar -zxvf pd-0.46-7.armv7.tar.gz
+```
