@@ -1,7 +1,14 @@
 sudo systemctl stop startPD.service
 
 
+dans le folder service 
+
+
+sudo cp * /etc/systemd/system/
+
+
 PSIS-stat
+
 
 
 
