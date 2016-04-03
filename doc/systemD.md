@@ -1,6 +1,10 @@
 sudo systemctl stop startPD.service
 
 
+PSIS-stat
+
+
+
 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 
 
@@ -13,12 +17,6 @@ https://wiki.archlinux.org/index.php/Systemd
 
 
 #### Créer un fichier script
-
-
-/usr/bin/tmux new-session -d -s gpioOSC /home/pi/posteDecoute/scripts/gpioOSC
-tmux attach-session -t gpioOSC
-
-control+b puis x
 
 
 ```
