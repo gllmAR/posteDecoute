@@ -97,7 +97,7 @@ Joue un fichier aléatoire depuis le dossier circonstance lorsque ECOUTE  est ac
 
 * pour déployer sur le raspberry-pi (installer depuis git)
 ```
-cd ~/
+cd ~/src
 git clone --recursive https://github.com/gllmAR/posteDecoute.git
 ```
 * pour aller chercher la dernière version
