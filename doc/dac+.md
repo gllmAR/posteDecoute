@@ -2,10 +2,10 @@ Update Raspbian on the SD card to be the latest available.
 
 
 
-To ensure that the IQAUDIO Device drivers are loaded make sure 
+To ensure that the IQAUDIO Device drivers are loaded make sure
 
-: Ajouter le load de 
-/boot/config.txt file has the entry below ... 
+: Ajouter le load de
+/boot/config.txt file has the entry below ...
 
 
 
@@ -20,6 +20,10 @@ dtoverlay=iqaudio-dacplus
 
 ```
 
+# dtparam=audio=on
+
+
+-----
 Disable native audio
 
 cd /etc/modprobe.d

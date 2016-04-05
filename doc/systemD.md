@@ -1,7 +1,11 @@
+Pour avoir le status d un service
+sudo journalctl -f -u psis-pd
+
+
 sudo systemctl stop startPD.service
 
 
-dans le folder service 
+dans le folder service
 
 
 sudo cp * /etc/systemd/system/

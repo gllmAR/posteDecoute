@@ -1,7 +1,7 @@
 https://raspiugv.raudasoja.com/documentation/raspi/network/staticfallback
 
 ```
-sudo nano /etc/network/intefaces
+sudo nano /etc/network/interfaces
 ```
 
 
@@ -16,5 +16,3 @@ netmask 255.255.255.0
 ```
 sudo ifup eth0:1
 ```
-
-

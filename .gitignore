@@ -4,19 +4,10 @@
 .DS_Store
 .DS_Store?
 
-lieux/lieux_1/am/*.wav
-lieux/lieux_1/ci/*.wav
-lieux/lieux_1/de/*.wav
-lieux/lieux_1/sy/*.wav
-
-lieux/lieux_2/am/*.wav
-lieux/lieux_2/ci/*.wav
-lieux/lieux_2/de/*.wav
-lieux/lieux_2/sy/*.wav
-
-situations/
-
+situation/am/*.wav
+situation/ci/*.wav
+situation/de/*.wav
+situation/sy/*.wav
 
 pd/test
-
 pd/_old

@@ -1,8 +1,8 @@
 Installer PD
 
 cd ~
-mkdir src
-cd src
+mkdir src && cd src
+
 wget http://msp.ucsd.edu/Software/pd-0.46-7.armv7.tar.gz
 
 tar xvfz pd-0.46-7.armv7.tar.gz
