@@ -4,7 +4,7 @@
 #X text 75 87 ecouteur;
 #X text 78 110 detecte;
 #X msg 102 58 AMBIANCE.VEILLE;
-#X obj 391 176 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 391 176 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 48 175 ambiance.veille.timer;
 #X obj 322 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -17,7 +17,7 @@
 #X obj 215 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 132 108 var detecte;
-#X obj 211 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 211 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 212 88 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -32,11 +32,11 @@
 #X obj 393 220 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 192 219 var circonstance.old.timer.ended;
-#X obj 393 305 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 393 305 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 43 305 synchronie.timer.ended;
 #X obj 225 304 var synchronie.timer.ended;
-#X obj 393 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 393 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 48 260 detection.timer.ended;
 #X obj 231 258 var detection.timer.ended;
@@ -95,10 +95,10 @@
 #X connect 25 0 23 0;
 #X connect 26 0 23 0;
 #X restore 87 10 pd print;
-#X obj 393 281 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 393 281 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 42 281 detection.player.ended;
-#X obj 394 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 394 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 43 330 synchronie.timer.ended;
 #N canvas 0 22 455 419 AMBIANCE.VEILLE->AMBIANCE.ACTIF 0;
@@ -789,24 +789,26 @@ bang \; ambiance.play \;;
 #X restore 667 8 pd get.ecoute.actif;
 #N canvas 830 230 469 415 get.detect.actif 0;
 #X text 344 82 ecouteur;
-#X obj 27 77 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 26 253 delay;
-#X obj 26 98 sel 0 1;
-#X msg 39 179 stop;
-#X obj 27 123 t b b;
-#X obj 226 247 delay;
-#X obj 198 125 t b b;
-#X msg 187 176 stop;
-#X obj 226 271 t b;
-#X msg 226 296 1;
-#X obj 27 286 t b;
-#X msg 27 309 0;
-#X obj 27 49 change;
-#X obj 51 207 r detecte.inactif.timer;
-#X obj 254 204 r detecte.actif.timer;
-#X obj 27 354 s detecte.actif;
-#X obj 27 25 r detecte.raw;
+#X obj 26 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 25 288 delay;
+#X obj 25 133 sel 0 1;
+#X msg 38 214 stop;
+#X obj 26 158 t b b;
+#X obj 225 282 delay;
+#X obj 197 160 t b b;
+#X msg 186 211 stop;
+#X obj 225 306 t b;
+#X msg 225 331 1;
+#X obj 26 321 t b;
+#X msg 26 344 0;
+#X obj 27 31 change;
+#X obj 50 242 r detecte.inactif.timer;
+#X obj 253 239 r detecte.actif.timer;
+#X obj 27 7 r detecte.raw;
+#X obj 26 92 -;
+#X obj 25 67 swap 1;
+#X obj 26 389 s detecte;
 #X connect 1 0 3 0;
 #X connect 2 0 11 0;
 #X connect 3 0 5 0;
@@ -819,13 +821,16 @@ bang \; ambiance.play \;;
 #X connect 7 1 6 0;
 #X connect 8 0 6 0;
 #X connect 9 0 10 0;
-#X connect 10 0 16 0;
+#X connect 10 0 19 0;
 #X connect 11 0 12 0;
-#X connect 12 0 16 0;
-#X connect 13 0 1 0;
+#X connect 12 0 19 0;
+#X connect 13 0 18 0;
 #X connect 14 0 2 1;
 #X connect 15 0 6 1;
-#X connect 17 0 13 0;
+#X connect 16 0 13 0;
+#X connect 17 0 1 0;
+#X connect 18 0 17 0;
+#X connect 18 1 17 1;
 #X restore 667 28 pd get.detect.actif;
 #X obj 853 9 declare -path pd-osc/;
 #X text 480 335 players;
