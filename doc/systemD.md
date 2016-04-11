@@ -1,5 +1,64 @@
-Pour avoir le status d un service
+# Systemd
+
+Pour avoir le status défilant du service puredata
+
+```
 sudo journalctl -f -u psis-pd
+```
+
+Pour recharger la liste des services (si il y a des changements)
+
+```
+sudo systemctl daemon-reload
+```
+
+Pour démarer un services
+
+```
+sudo systemctl start psis-gpioEcouteur.service
+```
+
+
+
+Créer des services SystemD pour les composantes
+
+```
+sudo nano /etc/systemd/system/psis-gpioDetecte.service
+
+sudo nano /etc/systemd/system/psis-gpioEcouteur.service
+
+sudo nano /etc/systemd/system/psis-pd.service
+```
+
+A verifier si copier les service dans le dossier fonctionne ::
+```
+sudo cp ~/src/posteDecoute/services/* /etc/systemd/system/
+```
+
+
+
+activer les services
+
+```
+sudo systemctl enable psis-pd.service
+
+sudo systemctl enable psis-gpioEcouteur.service
+
+sudo systemctl enable psis-gpioDetecte.service
+
+```
+
+
+reboot
+
+
+
+
+
+
+
+
+
 
 
 sudo systemctl stop startPD.service

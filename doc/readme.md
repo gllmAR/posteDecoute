@@ -40,7 +40,7 @@ sudo easy_install pip &&
 sudo pip install pyOSC
 ```
 
-configurer [afp](afp.md)
+configurer le protocole de partage reseau [afp](afp.md)
 
 configurer dac+[dac+](dac+.md)
 
@@ -48,7 +48,9 @@ configurer ip manuel [ip_manuel](im_manuel.md)
 
 installer pd [pd](pd.md)
 
-brancher en suivant le [pinout](pinout.md)
+brancher en suivant le [pinout](pinOut.md)
+
+Distribuer les pi selon l'[allocation](allocation.md)
 
 ```
 sudo reboot
