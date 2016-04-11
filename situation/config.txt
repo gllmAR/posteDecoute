@@ -3,7 +3,7 @@ ecouteur.actif.timer 100;
 ecouteur.inactif.timer 1000;
 detecte.actif.timer 100;
 detecte.inactif.timer 1000;
-synchrone.out 127.0.0.1 8000;
+synchrone.out 10.0.0.50 8000;
 ambiance.veille.timer.min 5;
 ambiance.veille.timer.max 10;
 ambiance.filename lieux2_am;
