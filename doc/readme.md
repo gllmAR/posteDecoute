@@ -40,19 +40,21 @@ sudo easy_install pip &&
 sudo pip install pyOSC
 ```
 
-configurer [afp](afp)
+configurer [afp](afp.md)
 
-configurer dac+[dac+](dac+)
+configurer dac+[dac+](dac+.md)
 
-configurer ip manuel [ip_manuel](im_manuel)
+configurer ip manuel [ip_manuel](im_manuel.md)
 
-installer pd [pd](pd)
+installer pd [pd](pd.md)
+
+brancher en suivant le [pinout](pinout.md)
 
 ```
 sudo reboot
 ```
 
-Configurer le volume de la carte piDac+ dans [alsa](alsa)
+Configurer le volume de la carte piDac+ dans [alsa](alsa.md)
 
 baisser le son à 35 sur alsamixer
 
