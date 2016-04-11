@@ -18,7 +18,11 @@ Pour démarer un services
 sudo systemctl start psis-gpioEcouteur.service
 ```
 
+Pour redémarrer un service
 
+```
+systemctl restart psis-pd
+```
 
 Créer des services SystemD pour les composantes
 
@@ -53,9 +57,18 @@ reboot
 
 
 
+# Startup Script systemD
+
+source :
+https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=7192&p=828947#p828947
 
 
 
+References
+https://wiki.archlinux.org/index.php/Systemd
+
+
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 
 
 
@@ -78,12 +91,6 @@ PSIS-stat
 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 
 
-# Startup Script systemD
-
-source : https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=7192&p=828947#p828947
-
-documentation :
-https://wiki.archlinux.org/index.php/Systemd
 
 
 #### Créer un fichier script
