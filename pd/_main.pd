@@ -28,7 +28,7 @@
 #X obj 383 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 182 229 var circonstance.old.timer.ended;
-#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 33 315 synchronie.timer.ended;
 #X obj 215 314 var synchronie.timer.ended;
@@ -143,7 +143,7 @@
 10 -262144 -1 -1;
 #X obj 251 290 var detection.ended;
 #X obj 255 338 var synchronie.ended;
-#N canvas 658 112 653 596 posteEcoute 0;
+#N canvas 658 112 653 596 posteEcoute 1;
 #N canvas 0 22 455 419 AMBIANCE.VEILLE->AMBIANCE.ACTIF 0;
 #X obj 15 136 spigot;
 #X obj 15 33 r ecouteur;
@@ -924,10 +924,10 @@
 0.01 \; synchronie.fadeout.fadetime 10000 \; synchronie.cut.vol 0 \;
 synchronie.cut.fadetime 500 \; detection.fadeout.vol 0.01 \; detection.fadeout.fadetime
 10000 \; detection.cut.vol 0 \; detection.cut.fadetime 500 \; ambiance.shuffle
-bang \; ambiance.play bang \; detecte.shuffle bang \; synchronie.next.reset
-bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
-\; ecouteur 0 \; detecte 0 \; synchrone 0 \; synchronie.remote.timer.ended
-1 \; state AMBIANCE.VEILLE \;;
+bang \; ambiance.play bang \; detecte.shuffle bang \; synchronie.timer
+1 \; synchronie.next.reset bang \; synchronie.remote.timer.ended 1
+\; ecouteur 0 \; detecte 0 \; synchrone 0 \; state AMBIANCE.VEILLE
+\;;
 #X obj 37 385 p.player ambiance;
 #X obj 37 405 p.player circonstance;
 #X obj 37 425 p.player detection;
@@ -1069,7 +1069,7 @@ bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
 #X connect 18 0 2 0;
 #X restore 448 114 pd ->SYNCHRONIE;
 #X restore 278 75 pd posteEcoute;
-#X obj 228 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 228 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 17 147 var synchronie.remote.timer.ended;
 #X connect 3 0 7 1;
