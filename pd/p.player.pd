@@ -116,7 +116,7 @@
 #X obj 159 3 bng 15 250 50 0 empty \$1.next \$1.next 17 7 0 10 -262144
 -1 -1;
 #X obj 23 133 send \$1.cue;
-#N canvas 779 131 453 476 next 0;
+#N canvas 779 131 453 476 next 1;
 #X obj 26 39 inlet;
 #X obj 25 397 outlet;
 #X obj 255 260 makefilename _%d;
@@ -167,16 +167,22 @@
 #X obj 320 58 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 186 100 - 1;
+#X obj 398 11 inlet;
+#X obj 101 272 print;
+#X floatatom 399 79 5 0 0 0 - - -, f 5;
+#X obj 221 203 s \$1.next.index;
 #X connect 0 0 3 0;
 #X connect 2 0 16 0;
 #X connect 3 0 5 0;
 #X connect 4 0 5 1;
 #X connect 5 0 9 0;
+#X connect 5 0 20 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 8 0 5 1;
 #X connect 9 0 6 0;
 #X connect 9 0 1 0;
+#X connect 9 0 18 0;
 #X connect 9 1 4 0;
 #X connect 10 0 6 1;
 #X connect 11 0 3 0;
@@ -186,8 +192,11 @@
 #X connect 14 1 13 0;
 #X connect 15 0 14 0;
 #X connect 16 0 6 1;
+#X connect 17 0 19 0;
+#X connect 19 0 5 0;
 #X restore 255 207 pd conte;
 #X obj 406 107 inlet;
+#X obj 461 148 inlet;
 #X connect 0 0 9 0;
 #X connect 2 0 15 0;
 #X connect 3 0 4 0;
@@ -225,12 +234,14 @@
 #X connect 29 0 14 1;
 #X connect 30 0 11 0;
 #X connect 31 0 30 2;
-#X restore 144 57 pd next;
+#X connect 32 0 30 3;
+#X restore 169 90 pd next;
 #X obj 248 29 r \$1.next.reset;
-#X obj 220 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 190 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 276 63 print next reset;
 #X obj 357 30 r \$1.next.reset.remote;
+#X obj 506 31 r \$1.next.index.set;
+#X obj 422 93 print \$1 next reset;
 #X connect 2 0 10 0;
 #X connect 2 1 9 0;
 #X connect 2 2 5 0;
@@ -278,7 +289,9 @@
 #X connect 41 0 43 0;
 #X connect 43 0 4 0;
 #X connect 44 0 43 1;
-#X connect 44 0 46 0;
+#X connect 44 0 48 0;
 #X connect 45 0 43 1;
-#X connect 47 0 43 1;
-#X connect 47 0 46 0;
+#X connect 46 0 43 1;
+#X connect 46 0 48 0;
+#X connect 47 0 43 2;
+#X connect 47 0 48 0;
