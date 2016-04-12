@@ -143,7 +143,7 @@
 10 -262144 -1 -1;
 #X obj 251 290 var detection.ended;
 #X obj 255 338 var synchronie.ended;
-#N canvas 38 146 653 596 posteEcoute 0;
+#N canvas 38 146 653 596 posteEcoute 1;
 #N canvas 0 22 455 419 AMBIANCE.VEILLE->AMBIANCE.ACTIF 0;
 #X obj 15 136 spigot;
 #X obj 15 33 r ecouteur;
@@ -849,7 +849,7 @@
 #X connect 2 0 1 0;
 #X restore 55 230 pd state-AMBIANCE.ACTIF;
 #X obj 37 446 p.player synchronie;
-#N canvas 692 314 480 560 function-SYNCHRONIE 0;
+#N canvas 692 314 480 560 function-SYNCHRONIE 1;
 #X obj 20 381 sel 1;
 #X obj 26 40 r SYNCHRONIE;
 #X obj 117 64 p.timer synchronie;
@@ -865,6 +865,11 @@
 #X obj 25 102 t b b b b b b;
 #X obj 87 150 del 400;
 #X obj 230 165 del 500;
+#X msg 311 43 /SYNCHRONIE.remote \$1;
+#X obj 290 72 r SYNCHRONIE.remote;
+#X msg 296 152 \; synchronie.play bang;
+#X msg 319 115 \; synchronie.index.set \$1;
+#X obj 290 94 t b a;
 #X connect 0 0 10 0;
 #X connect 1 0 11 0;
 #X connect 6 0 0 0;
@@ -877,6 +882,12 @@
 #X connect 12 4 14 0;
 #X connect 13 0 3 0;
 #X connect 14 0 9 0;
+#X connect 16 0 19 0;
+#X connect 19 0 17 0;
+#X connect 19 0 14 0;
+#X connect 19 0 13 0;
+#X connect 19 0 5 0;
+#X connect 19 1 18 0;
 #X restore 53 324 pd function-SYNCHRONIE;
 #N canvas 531 174 347 406 function-DETECTION 0;
 #X msg 52 428 \; detection.timer 1;
@@ -916,7 +927,7 @@ bang \; ambiance.play bang \; detecte.shuffle bang \; ecouteur 0 \;
 detecte 0 \; synchrone 0 \; synchronie.timer 1 \; synchronie.next.reset
 bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
 \; synchronie.next.reset 1 \; state AMBIANCE.VEILLE \;;
-#N canvas 474 337 411 362 ->SYNCHRONIE 0;
+#N canvas 535 134 593 548 ->SYNCHRONIE 1;
 #X obj 28 2 r ecouteur;
 #X obj 24 121 == 1;
 #X obj 20 240 list.sum;
