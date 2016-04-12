@@ -33,8 +33,8 @@
 10 -262144 -1 -1;
 #X obj 539 385 r \$1.fadeout.vol;
 #X obj 533 414 r \$1.fadeout.fadetime;
-#X obj 167 148 r \$1.replay;
-#X obj 167 173 t b b;
+#X obj 284 93 r \$1.replay;
+#X obj 284 118 t b b;
 #X obj 85 360 bng 15 250 50 0 empty \$1.normal \$1.normal 17 7 0 10
 -262144 -1 -1;
 #X obj 225 394 f;
@@ -115,7 +115,7 @@
 #X restore 4 48 pd shuffle;
 #X obj 159 3 bng 15 250 50 0 empty \$1.next \$1.next 17 7 0 10 -262144
 -1 -1;
-#N canvas 525 131 453 476 next 0;
+#N canvas 470 80 631 465 next 0;
 #X obj 19 9 inlet;
 #X obj 29 399 outlet;
 #X obj 255 260 makefilename _%d;
