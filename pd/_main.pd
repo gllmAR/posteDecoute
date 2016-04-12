@@ -3,32 +3,32 @@
 #X declare -path pd-osc/;
 #X text 45 77 ecouteur;
 #X text 48 100 detecte;
-#X msg 39 45 AMBIANCE.VEILLE;
+#X msg 39 45 CIRCONSTANCE.OLD;
 #X obj 381 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 38 185 ambiance.veille.timer;
 #X text 32 209 circonstance.new.timer;
 #X text 61 251 circonstance.flag;
 #X obj 188 186 var ambiance.veille.timer.ended;
-#X obj 185 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 185 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 102 98 var detecte;
 #X obj 181 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 182 78 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 182 78 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 102 77 var ecouteur;
 #X obj 179 208 var circonstance.new.timer.ended;
-#X obj 382 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 382 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 247 249 var circonstance.flag;
-#X obj 384 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 384 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 32 230 circonstance.old.timer;
-#X obj 383 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 383 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 182 229 var circonstance.old.timer.ended;
-#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 33 315 synchronie.timer.ended;
 #X obj 215 314 var synchronie.timer.ended;
@@ -1020,7 +1020,7 @@ bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
 #X connect 20 0 5 0;
 #X restore 374 517 pd CIRCONSTANCE.OLD->SYNCHRONIE;
 #X restore 278 75 pd posteEcoute;
-#X obj 228 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 228 149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 17 147 var synchronie.remote.timer.ended;
 #X connect 3 0 7 1;
