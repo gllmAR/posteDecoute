@@ -1,10 +1,10 @@
-#N canvas 499 299 538 403 10;
+#N canvas 514 209 538 403 10;
 #X declare -path abs/;
 #X declare -path pd-osc/;
 #X text 45 77 ecouteur;
 #X text 48 100 detecte;
-#X msg 39 45 CIRCONSTANCE.OLD;
-#X obj 381 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X msg 39 45 AMBIANCE.ACTIF;
+#X obj 381 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 38 185 ambiance.veille.timer;
 #X text 32 209 circonstance.new.timer;
@@ -25,10 +25,10 @@
 #X obj 384 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 32 230 circonstance.old.timer;
-#X obj 383 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 383 230 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 182 229 var circonstance.old.timer.ended;
-#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 383 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 33 315 synchronie.timer.ended;
 #X obj 215 314 var synchronie.timer.ended;
@@ -132,7 +132,7 @@
 #X obj 383 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 32 291 detection.player.ended;
-#X obj 384 340 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 384 340 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 33 340 synchronie.timer.ended;
 #X obj 23 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -143,7 +143,7 @@
 10 -262144 -1 -1;
 #X obj 251 290 var detection.ended;
 #X obj 255 338 var synchronie.ended;
-#N canvas 759 79 653 596 posteEcoute 1;
+#N canvas 644 231 653 596 posteEcoute 0;
 #N canvas 0 22 455 419 AMBIANCE.VEILLE->AMBIANCE.ACTIF 0;
 #X obj 15 136 spigot;
 #X obj 15 33 r ecouteur;
@@ -794,7 +794,7 @@
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X restore 152 385 pd ambiance.loop;
-#N canvas 643 141 450 415 osc 0;
+#N canvas 767 152 450 415 osc 0;
 #X obj 44 70 oReceive 8000;
 #X obj 44 29 r osc.port.in;
 #X obj 82 164 send;
@@ -807,10 +807,13 @@
 #X msg 22 276 /synchrone \$1;
 #X obj 45 386 oSend;
 #X obj 237 281 r synchronie.next.reset;
-#X msg 238 324 /synchronie.next.reset bang;
 #X obj 237 304 t b;
-#X msg 200 185 /synchronie.remote.timer.ended \$1;
-#X obj 201 162 r synchronie.timer.ended;
+#X obj 200 151 r synchronie.timer.ended;
+#X obj 21 239 change;
+#X msg 237 337 /synchronie.next.reset 1;
+#X msg 234 72 \; synchronie.next.reset 1;
+#X msg 234 113 \; synchronie.next 1;
+#X msg 200 185 /synchronie.remote.timer.ended 1;
 #X connect 0 1 2 0;
 #X connect 0 2 4 0;
 #X connect 1 0 0 0;
@@ -818,13 +821,14 @@
 #X connect 5 0 2 1;
 #X connect 6 0 7 0;
 #X connect 7 0 10 1;
-#X connect 8 0 9 0;
+#X connect 8 0 14 0;
 #X connect 9 0 10 0;
-#X connect 11 0 13 0;
-#X connect 12 0 10 0;
-#X connect 13 0 12 0;
-#X connect 14 0 10 0;
-#X connect 15 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 13 0 18 0;
+#X connect 14 0 9 0;
+#X connect 15 0 10 0;
+#X connect 18 0 10 0;
 #X restore 58 29 pd osc;
 #N canvas 180 407 450 300 soundOutput 0;
 #X obj 25 50 catch~ chan1;
@@ -860,18 +864,18 @@
 #X restore 55 230 pd state-AMBIANCE.ACTIF;
 #X obj 37 446 p.player synchronie;
 #N canvas 1005 61 347 406 function-SYNCHRONIE 0;
-#X obj 20 364 t b b;
+#X obj 20 354 t b b;
 #X obj 26 62 t b b;
 #X obj 28 118 t b b b;
-#X obj 20 341 sel 1;
+#X obj 20 331 sel 1;
 #X obj 26 19 r SYNCHRONIE;
 #X obj 70 62 p.timer synchronie;
 #X msg 70 150 \; synchronie.ended 0;
 #X msg 45 190 \; synchronie.play bang;
 #X msg 28 228 \; synchronie.normal bang;
-#X obj 20 308 r synchronie.ended;
-#X msg 21 417 \; synchronie.timer 1;
-#X msg 46 384 \; synchronie.next bang;
+#X obj 20 298 r synchronie.ended;
+#X msg 20 417 \; synchronie.timer 1;
+#X msg 47 380 \; synchronie.next bang;
 #X connect 0 0 10 0;
 #X connect 0 1 11 0;
 #X connect 1 0 2 0;
