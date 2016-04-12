@@ -509,7 +509,7 @@
 #X restore 54 275 pd state-CIRCONSTANCE.OLD;
 #X text 282 178 STATE MACHINE;
 #X text 7 186 STATEs;
-#N canvas 135 108 636 710 gestionLieux 0;
+#N canvas 380 102 636 710 gestionLieux 0;
 #X obj 71 301 text define lieu;
 #X obj 31 50 openpanel;
 #X obj 31 16 bng 15 250 50 0 empty lieu.open lieu.open 17 7 0 10 -262144
@@ -770,7 +770,7 @@
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X restore 152 385 pd ambiance.loop;
-#N canvas 115 118 533 542 osc 1;
+#N canvas 115 118 533 542 osc 0;
 #X obj 44 70 oReceive 8000;
 #X obj 44 29 r osc.port.in;
 #X obj 82 164 send;
@@ -904,8 +904,8 @@ synchronie.cut.fadetime 500 \; detection.fadeout.vol 0.01 \; detection.fadeout.f
 10000 \; detection.cut.vol 0 \; detection.cut.fadetime 500 \; ambiance.shuffle
 bang \; ambiance.play bang \; detecte.shuffle bang \; ecouteur 0 \;
 detecte 0 \; synchrone 0 \; synchronie.timer 1 \; synchronie.next.reset
-bang \; synchronie.remote.timer.ended 1 \; state AMBIANCE.VEILLE \;
-;
+bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
+\; state AMBIANCE.VEILLE \;;
 #N canvas 474 337 411 362 ->SYNCHRONIE 0;
 #X obj 28 2 r ecouteur;
 #X obj 24 121 == 1;
