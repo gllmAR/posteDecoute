@@ -143,7 +143,7 @@
 10 -262144 -1 -1;
 #X obj 251 290 var detection.ended;
 #X obj 255 338 var synchronie.ended;
-#N canvas 409 84 653 596 posteEcoute 1;
+#N canvas 38 146 653 596 posteEcoute 1;
 #N canvas 0 22 455 419 AMBIANCE.VEILLE->AMBIANCE.ACTIF 0;
 #X obj 15 136 spigot;
 #X obj 15 33 r ecouteur;
@@ -770,7 +770,7 @@
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X restore 152 385 pd ambiance.loop;
-#N canvas 115 118 533 542 osc 0;
+#N canvas 820 206 533 542 osc 1;
 #X obj 44 70 oReceive 8000;
 #X obj 44 29 r osc.port.in;
 #X obj 82 164 send;
@@ -787,8 +787,7 @@
 #X msg 234 72 \; synchronie.next.reset 1;
 #X msg 234 113 \; synchronie.next 1;
 #X msg 157 201 /synchronie.remote.timer.ended \$1;
-#X obj 149 279 print synch;
-#X obj 157 169 r synchronie.timer.ended;
+#X obj 132 171 r synchronie.timer.ended;
 #X msg 268 374 /synchronie.next.reset.remote 1;
 #X connect 0 1 2 0;
 #X connect 0 2 4 0;
@@ -800,11 +799,10 @@
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 11 0 12 0;
-#X connect 12 0 18 0;
+#X connect 12 0 17 0;
 #X connect 15 0 10 0;
-#X connect 17 0 15 0;
-#X connect 17 0 16 0;
-#X connect 18 0 10 0;
+#X connect 16 0 15 0;
+#X connect 17 0 10 0;
 #X restore 58 29 pd osc;
 #N canvas 180 407 450 300 soundOutput 0;
 #X obj 25 50 catch~ chan1;
@@ -905,7 +903,7 @@ synchronie.cut.fadetime 500 \; detection.fadeout.vol 0.01 \; detection.fadeout.f
 bang \; ambiance.play bang \; detecte.shuffle bang \; ecouteur 0 \;
 detecte 0 \; synchrone 0 \; synchronie.timer 1 \; synchronie.next.reset
 bang \; synchronie.timer.ended 1 \; synchronie.remote.timer.ended 1
-\; state AMBIANCE.VEILLE \;;
+\; synchronie.next.reset 1 \; state AMBIANCE.VEILLE \;;
 #N canvas 474 337 411 362 ->SYNCHRONIE 0;
 #X obj 28 2 r ecouteur;
 #X obj 24 121 == 1;
