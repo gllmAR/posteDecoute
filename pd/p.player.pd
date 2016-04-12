@@ -129,7 +129,7 @@
 #X obj 31 101 t b b b;
 #X obj 31 302 combine;
 #X obj 255 235 + 1;
-#X obj 101 100 r \$1.filename;
+#X obj 105 78 r \$1.filename;
 #X obj 254 47 r \$1.count;
 #X obj 32 274 combine path /de/;
 #X obj 200 297 combine text .wav;
@@ -197,6 +197,7 @@
 #X restore 255 207 pd conte;
 #X obj 406 107 inlet;
 #X obj 461 148 inlet;
+#X obj 357 165 t b b b a;
 #X connect 0 0 9 0;
 #X connect 2 0 15 0;
 #X connect 3 0 4 0;
@@ -234,7 +235,10 @@
 #X connect 29 0 14 1;
 #X connect 30 0 11 0;
 #X connect 31 0 30 2;
-#X connect 32 0 30 3;
+#X connect 32 0 33 0;
+#X connect 33 0 7 0;
+#X connect 33 2 3 0;
+#X connect 33 3 30 3;
 #X restore 169 90 pd next;
 #X obj 248 29 r \$1.next.reset;
 #X obj 190 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
