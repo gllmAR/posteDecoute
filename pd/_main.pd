@@ -112,10 +112,10 @@
 #X obj 227 448 list append;
 #X obj 226 359 t b;
 #X obj 242 424 r AMBIANCE.cue;
-#X obj 226 338 r ambiance.ended;
-#X obj 350 339 r circonstance.ended;
-#X obj 484 339 r synchronie.ended;
-#X obj 613 336 r detection.ended;
+#X obj 226 318 r ambiance.ended;
+#X obj 350 319 r circonstance.ended;
+#X obj 484 319 r synchronie.ended;
+#X obj 613 316 r detection.ended;
 #X msg 227 397 AMBIANCE ended;
 #X msg 351 381 CIRCONSTANCE ended;
 #X msg 485 382 SYNCHRONIE ended;
@@ -132,6 +132,10 @@
 #X obj 1098 217 int, f 4;
 #X obj 1112 283 int, f 4;
 #X obj 1109 351 int, f 4;
+#X obj 612 338 sel 1;
+#X obj 484 339 sel 1;
+#X obj 360 339 sel 1;
+#X obj 228 340 sel 1;
 #X connect 0 0 42 0;
 #X connect 1 0 41 0;
 #X connect 2 0 31 0;
@@ -201,10 +205,10 @@
 #X connect 70 0 63 0;
 #X connect 71 0 77 0;
 #X connect 72 0 70 1;
-#X connect 73 0 71 0;
-#X connect 74 0 68 0;
-#X connect 75 0 65 0;
-#X connect 76 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 95 0;
+#X connect 75 0 94 0;
+#X connect 76 0 93 0;
 #X connect 77 0 70 0;
 #X connect 78 0 67 0;
 #X connect 79 0 60 0;
@@ -219,6 +223,10 @@
 #X connect 90 0 24 0;
 #X connect 91 0 25 0;
 #X connect 92 0 45 0;
+#X connect 93 0 66 0;
+#X connect 94 0 65 0;
+#X connect 95 0 68 0;
+#X connect 96 0 71 0;
 #X restore 22 15 pd print;
 #X obj 383 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
