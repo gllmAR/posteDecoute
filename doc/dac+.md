@@ -1,14 +1,8 @@
-Update Raspbian on the SD card to be the latest available.
+# DAC+
 
+Cette opération sert à rendre fonctionnel et par defaut la carte audui IQAUDIO Device drivers
 
-
-To ensure that the IQAUDIO Device drivers are loaded make sure
-
-: Ajouter le load de
-/boot/config.txt file has the entry below ...
-
-
-
+Editer le fichier de config du PI
 ```
 sudo nano /boot/config.txt
 ```
@@ -20,12 +14,7 @@ dtoverlay=iqaudio-dacplus
 
 ```
 
+Commenter la ligne suivante : comme suis :
+```
 # dtparam=audio=on
-
-
------
-Disable native audio
-
-cd /etc/modprobe.d
-
-sudo nano alsa-blacklist.conf
+```

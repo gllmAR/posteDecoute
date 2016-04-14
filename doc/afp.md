@@ -7,7 +7,7 @@
 * infos [netatalk](http://www.raspberrypi.org/forums/viewtopic.php?f=36&t=26826)
 * file sharing : [http://raspberry.znix.com/2013/03/connecting-to-raspberry-pi-with-mac-os-x.html](http://raspberry.znix.com/2013/03/connecting-to-raspberry-pi-with-mac-os-x.html)
 
-##### installer les dépendances requises (netatalk et x11vnc)
+##### installer les dépendances requises (netatalk)
 
 sudo apt-get install netatalk
 

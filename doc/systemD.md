@@ -1,9 +1,15 @@
 # Systemd
 
-Pour avoir le status défilant du service puredata
+Pour avoir le statut défilant du service puredata
 
 ```
 sudo journalctl -f -u psis-pd
+```
+
+Pour redémarrer le service puredata et avoir le statut défilant
+
+```
+sudo systemctl restart psis-pd  && sudo journalctl -f -u psis-pd
 ```
 
 Pour recharger la liste des services (si il y a des changements)
