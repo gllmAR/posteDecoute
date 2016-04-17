@@ -1,6 +1,6 @@
 https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
-telecharger raspbian frais chez raspberrypi.org
+télécharger raspbian frais chez raspberrypi.org
 
 
 dans le terminal

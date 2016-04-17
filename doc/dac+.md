@@ -7,7 +7,7 @@ Editer le fichier de config du PI
 sudo nano /boot/config.txt
 ```
 
-Inserer la ligne suivante
+Insérer la ligne suivante
 
 ```
 dtoverlay=iqaudio-dacplus

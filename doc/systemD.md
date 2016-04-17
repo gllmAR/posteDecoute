@@ -12,6 +12,10 @@ Pour redémarrer le service puredata et avoir le statut défilant
 sudo systemctl restart psis-pd  && sudo journalctl -f -u psis-pd
 ```
 
+Pour mettre à jour la programmation,  redémarrer le service et avoit le statut défillant
+```
+cd /home/pi/src/posteDecoute/ && git pull &&  sudo systemctl restart psis-pd  && sudo journalctl -f -u psis-pd
+```
 Pour recharger la liste des services (si il y a des changements)
 
 ```

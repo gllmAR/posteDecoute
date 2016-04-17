@@ -12,7 +12,7 @@ Pénétrer le pi avec le mot de pass "raspberry"
 ssh pi@raspberrypi.local
 ```
 
-mettre à jours les paquet du raspberry
+mettre à jour les paquets du raspberry
 ```
 sudo apt-get update && sudo apt-get upgrade
 ```
@@ -81,7 +81,7 @@ sudo nano /etc/systemd/system/psis-gpioEcouteur.service
 sudo nano /etc/systemd/system/psis-pd.service
 ```
 
-A verifier si copier les service dans le dossier fonctionne ::
+À vérifier si copier les services dans le dossier fonctionne ::
 ```
 sudo cp ~/src/posteDecoute/services/* /etc/systemd/system/
 ```
