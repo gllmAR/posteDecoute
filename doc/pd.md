@@ -1,5 +1,7 @@
 # Installer PD
 
+depuis un fenêtre SSH connecté sur le Pi
+
 ```
 cd ~
 mkdir src && cd src

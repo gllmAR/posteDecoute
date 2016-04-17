@@ -24,3 +24,6 @@
 	* AMBIANCE, CIRCONSTANCE et SYNCHRONE
 * DETECTE : 
 	* AMBIANCE, CIRCONSTANCE et DÉTECTE	
+
+
+Plus de détails dans [stateEtFonction.md](stateEtFonction.md)

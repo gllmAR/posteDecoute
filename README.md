@@ -14,13 +14,12 @@ fonctionne grace à :
 * Python
 * pi-dac+ (carte audio i2s)
 
-Sous la logique suivante : 
+Fonctionne en respectant la [logique](/doc/logique.md) suivante : 
 
-[logique](/doc/logique)
 
-### Documentation 
 
-* [documentation](/doc)
+### [Documentation](/doc)
+
 
 
 
