@@ -1,48 +1,45 @@
-Installer PD
+# Installer PD
 
+```
 cd ~
 mkdir src && cd src
-
 wget http://msp.ucsd.edu/Software/pd-0.46-7.armv7.tar.gz
-
 tar xvfz pd-0.46-7.armv7.tar.gz
-
-<!-- symlink pd
-.
-ln -s /home/pi/src/pd-0.46-7/bin/pd /usr/bin/pd
-ln -s /home/pi/src/pd-0.46-7/bin/pd-watchdog /usr/bin/pd-watchdog
--->
-
-
-echo "export PATH=\$PATH:/opt/bin"/home/pi/src/pd-0.46-7/bin >> ~/.profile
-
-
-to start pd
+```
 
 
 
-Add pd to path
+#### notes supplémentaires
 
-sudo nano /etc/profile.d/pd.sh
+##### notes sur les cartes de sons
+noter qu'il faut spécifiquement des carte n'ayant pas le même nom pour que PD soit capable de choisir la bonne carte au démarrage en command line.
 
-PATH=$PATH:/home/pi/src/pd-0.46-7/bin/
+Setup Fonctionnel de deux carte
+```
+aplay -l
+```
+card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI] Subdevices: 1/1 Subdevice #0: subdevice #0
+card 1: Set [C-Media USB Headphone Set], device 0: USB Audio [USB Audio] Subdevices: 1/1 Subdevice #0: subdevice #0
+card 2: Device [USB Audio Device], device 0: USB Audio [USB Audio] Subdevices: 1/1 Subdevice #0: subdevice #0
 
-reboot
-
-
+Lancer deux instances de pd avec deux cartes audio différtentes
+```
+pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "3,1" ~/prog/test1.pd
+pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "5,1" ~/prog/test2.pd
+```
 
 
 
 
+```
 /home/pi/pd-0.46-7/bin/pd -nogui -listdev -audiooutdev "1,1" /home/pi/test/Untitled-1.pd
+```
 
 
 
 
 
-
-
-
+```
 audio configuration flags:
 -r <n>           -- specify sample rate
 -audioindev ...  -- sound in device list; e.g., "2,1" for second and first
@@ -58,7 +55,6 @@ audio configuration flags:
 -noadc           -- suppress audio input
 -noaudio         -- suppress audio input and output (-nosound is synonym)
 -listdev         -- list audio and MIDI devices
-
 (linux specific audio:)
 -oss            -- use ALSA audio drivers
 -alsa           -- use ALSA audio drivers
@@ -66,11 +62,9 @@ audio configuration flags:
 -alsadev <n>    -- obsolete: use -audiodev
 -32bit          -- (probably obsolete) -- use 32 bit OSS extension
 -alsaadd <dev>  -- add a device to the ALSA device list
-
 (Windows specific audio:)
 -mmio           -- use MMIO drivers and API
 -asio           -- use ASIO drivers and API
-
 MIDI configuration flags:
 -midiindev ...   -- midi in device list; e.g., "1,3" for first and third
 -midioutdev ...  -- midi out device list, same format
@@ -79,7 +73,6 @@ MIDI configuration flags:
 -nomidiout       -- suppress MIDI output
 -nomidi          -- suppress MIDI input and output
 -alsamidi        -- use ALSA midi API
-
 general flags:
 -path <path>     -- add to file search path
 -nostdpath       -- don't search standard ("extra") directory
@@ -100,3 +93,4 @@ general flags:
 -rt or -realtime -- use real-time priority (needs root privilege)
 -nrt             -- don't use real-time priority
 -nosleep         -- never relinquish CPU (only for multiprocessors!)
+```
